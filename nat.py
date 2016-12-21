@@ -1,0 +1,14 @@
+#!/usr/bin/env python
+# -*- coding: UTF-8 -*-
+import ntplib, cgitb
+
+cgitb.enable()
+print "Content-Type: text/plain;charset=utf-8"
+print ""
+
+print "Hello World!"
+
+from time import ctime
+c = ntplib.NTPClient()
+response = c.request('pool.ntp.org')
+print ctime(response.tx_time)
